@@ -15,7 +15,7 @@
 }
 
 body::after {
-   content: url('header2.png');
+   content: url('header2.png') !important; 
    display: none;
 }
 
@@ -111,7 +111,7 @@ a, button, input[type="submit"], .clickable-element {
 
 /* Instant Hover Swap */
 .header-img-container:hover .logo {
-    content: url('header2.png');
+    content: url('header2.png') !important;
 }
 
 .hover-text .hidden {
@@ -291,7 +291,7 @@ section {
     font-size: 1.5rem;
     margin: 40px 0 20px 0;
     border-bottom: 1px solid var(--primary);
-    padding-bottom: 5px;
+    padding-bottom: 15px;
 }
 
 .section-subtitle {
@@ -533,6 +533,8 @@ section {
 
 .warning {
 	font-size:15px;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
 /* Custom scrollbar for the modal so it matches your theme */
@@ -743,7 +745,8 @@ section {
     .scrollbar-track, 
     .side-img, 
     .side-warning, 
-    .watermark {
+    .watermark,
+    body::before { /* Also hides the watermark fade on mobile for speed */
         display: none !important;
     }
 
@@ -757,6 +760,7 @@ section {
     .sidebar {
         width: 100%;
         padding: 15px 15px 0 15px;
+        border-right: none !important;
     }
 
     .panel-content {
@@ -769,7 +773,7 @@ section {
         align-items: center;
     }
 
-    /* 5. Content Centering & Stacking (Releases/Covers) */
+    /* 5. Content Centering & VERTICAL Stacking (Releases/Covers) */
     .content {
         width: 100%;
         padding: 10px 20px;
@@ -783,9 +787,23 @@ section {
         gap: 30px;
     }
 
+    /* FORCES LABELS BELOW IMAGES */
+    .post {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100%;
+    }
+
     .post-img-cover {
         width: 250px;
         height: auto;
+    }
+
+    .post label {
+        margin-top: 10px;
+        display: block;
+        width: 100%;
     }
 
     /* 6. Beats Section: 2 per row, text below image */
@@ -795,8 +813,9 @@ section {
     }
 
     .beat-card {
-        flex-direction: column !important;
-        align-items: center;
+        display: flex !important;
+        flex-direction: column !important; /* Forces text under beat thumb */
+        align-items: center !important;
         text-align: center;
     }
 
@@ -806,16 +825,21 @@ section {
         margin-bottom: 8px;
     }
 
+    .beat-name {
+        margin-top: 5px;
+        display: block;
+    }
+
     /* 7. PROFILE LIGHTBOX FIX: Smaller popup for shynin9s etc */
     .modal-panel {
-        width: 85% !important; /* Shinks the box so it doesn't hit edges */
+        width: 85% !important; 
         padding: 20px !important;
         max-height: 90vh;
     }
 
     #lightbox-img {
         max-width: 100% !important;
-        max-height: 60vh !important; /* Keeps tall images from going off screen */
+        max-height: 60vh !important; 
         object-fit: contain;
     }
 
@@ -831,7 +855,7 @@ section {
     }
 
     #modal-img {
-        width: 220px !important; /* Smaller album art in popup */
+        width: 220px !important; 
         height: 220px !important;
         margin-bottom: 15px;
     }
@@ -865,4 +889,6 @@ section {
         width: 150px;
         text-align: center;
     }
+	
 }
+

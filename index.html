@@ -10,7 +10,7 @@
 	<meta name="description" content="AruneArchive: Official hub for Arune's music, beats, cover art, and edits. Don't sleep on the archive.">
 <meta name="keywords" content="arune website, Arune, AruneArchive, underground music, beats, cover art, Luv2Jugg, Musketeer">
 <link rel="canonical" href="https://arunearchive.github.io/">
-
+<link rel="preload" href="header2.png" as="image">
 <meta property="og:title" content="AruneArchive">
 <meta property="og:description" content="Music. Beats. Edits. Everything Arune.">
 <meta property="og:image" content="header.png">
@@ -154,8 +154,23 @@
         <main class="content">
 			<section class="featured">
     <h2 class="page-title">Latest</h2>
-    
-    <a href="https://www.youtube.com/watch?v=EpeQWyljXqo" target="_blank" class="featured-link">
+			
+			<iframe data-testid="embed-iframe" style="border-radius:12px" 
+			src="https://open.spotify.com/embed/album/3lEV6YOqHhjRRwA3S5iO2K?utm_source=generator" 
+			width="100%" height="452" frameBorder="0" allowfullscreen="" 
+			allow="autoplay; clipboard-write; encrypted-media; fullscreen; 
+			picture-in-picture" loading="lazy"></iframe>
+
+    <p class="warning" style="padding-top: 10px; padding-bottom: 10px;">
+        Shynin9s' new mixtape, cool as hell!<br> (Go bump it . . .)
+    </p>
+			</section>
+			
+            <section class="updates">
+			<h2 class="section-title">Featured</h2>
+<p class="warning">- *not accepting requests (until i set up payment methods)* -</p>
+			
+			<a href="https://www.youtube.com/watch?v=EpeQWyljXqo" target="_blank" class="featured-link">
         <div class="video-frame">
             <div class="highlight-overlay"></div> <img src="video.gif" alt="Musketeer" class="video-gif">
             <div class="shadow-overlay"></div>
@@ -164,11 +179,7 @@
 
     <a style="text-decoration:none;" target="_blank" href="https://www.youtube.com/watch?v=EpeQWyljXqo"><h1 class="song-title">Musketeer (Official Video)</h1></a>
 	<p style="text-align:center;">(first release of 2026 ! ! !)</p>
-</section>
 			
-            <section class="updates">
-			<h2 class="section-title">Featured</h2>
-<p class="warning">- *not accepting requests (until i set up payment methods)* -</p>
 			<a style="text-decoration:none;" href="https://soundcloud.com/arunearchive/tracks" target="_blank"><h3 class="section-subtitle" id="releases-sector">Releases (see more)</h3></a>
                 <div class="post-grid">
     <div class="post" onclick="openModal('ltj.jpg', 'Luv2Jugg(2025)', 'my first EP, go listen if uuu havent.', 'https://soundcloud.com/arunearchive/sets/luv2jugg', 'https://www.youtube.com/playlist?list=PLJOF9QFdzOZOSXswc6UdHh2wXYEVzPqjr')">
@@ -566,6 +577,21 @@ window.onscroll = function() {
         topBtn.classList.remove("visible");
     }
 };
+
+let currentIgIdx = 0;
+const totalIgImages = 4; // Because you have post1 through post4
+
+function scrollIG(direction) {
+    const slider = document.getElementById('ig-slider');
+    currentIgIdx += direction;
+
+    // Loop back to start/end
+    if (currentIgIdx >= totalIgImages) currentIgIdx = 0;
+    if (currentIgIdx < 0) currentIgIdx = totalIgImages - 1;
+
+    const offset = currentIgIdx * -100;
+    slider.style.transform = `translateX(${offset}%)`;
+}
 </script>
 
 </body>
