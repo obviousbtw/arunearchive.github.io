@@ -98,6 +98,21 @@ a, button, input[type="submit"], .clickable-element {
 	color: #fff;
 }
 
+.clickable {
+	text-decoration: none;
+	color: #c0c0c0;
+	margin-bottom: 50px;
+}
+
+.clickable:hover {
+	color: #d60000;
+}
+
+.spotify-arune {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 /* --- Header & Navigation --- */
 .header {
     text-align: center;
